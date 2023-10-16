@@ -1,14 +1,16 @@
 const express = require("express");
-// const dotenv = require("dotenv");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
 const app = express();
+app.use(cookieParser());
 
 require("./database/connection");
 app.use(express.json());
 
 app.use(require("./routes/users"));
 
-// dotenv.config({ path: "./.env" });
+dotenv.config({ path: "./.env" });
 // app.use(express.urlencoded({ extended: true }));
 
 // ------------- DATABASE--------------------
